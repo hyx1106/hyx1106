@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>鑽全實業股份有限公司 EHS 管理系統</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>鑽全實業股份有限公司 EHS 管理系統</h1>
+        <div id="logo-placeholder">Logo Placeholder</div>
+    </header>
+    <nav id="factory-selector">
+        <label for="factory">廠區：</label>
+        <select id="factory" name="factory">
+            <option value="all">全公司</option>
+            <option value="factory1">一廠</option>
+            <option value="factory2">二廠</option>
+            <option value="factory3">三廠</option>
+            <option value="factory5">五廠</option>
+            <option value="factory6">六廠</option>
+            <option value="factory7">七廠</option>
+            <option value="factory8">八廠</option>
+        </select>
+    </nav>
+    <div id="daily-safety-slogan">每日工安警示語</div>
+    <div class="container">
+        <aside id="sidebar">
+            <h2>模組選單</h2>
+            <ul>
+                <li><a href="#" data-module="dashboard">儀表板</a></li>
+                <li><a href="#" data-module="env-management">環境管理</a></li>
+                <li><a href="#" data-module="osh-management">職業安全衛生管理</a></li>
+            </ul>
+        </aside>
+        <main id="main-content">
+            <div id="dashboard-content" class="module-content">
+                <h3 id="dashboard-title">儀表板</h3>
+                <div class="dashboard-widget" id="env-summary"><h3>環境績效總覽</h3><p>將顯示空氣、水質、廢棄物等合規狀態...</p></div>
+                <div class="dashboard-widget" id="safety-summary"><h3>安全指標</h3><p>將顯示事故率、通報事件等...</p></div>
+                <div class="dashboard-widget" id="ghg-summary"><h3>溫室氣體排放</h3><p>將顯示排放趨勢圖表...</p></div>
+                <div class="dashboard-widget" id="energy-summary"><h3>能資源消耗</h3><p>將顯示能源使用效率...</p></div>
+                <div class="dashboard-widget" id="water-usage-summary"><h3>水資源使用</h3><p>將顯示水資源使用效率與回收再利用率...</p></div>
+                <div class="dashboard-widget" id="compliance-summary"><h3>法規遵循狀態</h3><p>將顯示環安衛法規符合性與查核結果...</p></div>
+            </div>
+            <div id="env-management-content" class="module-content" style="display: none;">
+                <h2>環境管理總覽</h2>
+                <section id="air-pollution-monitoring">
+                    <h3>空氣污染監測</h3>
+                    <form id="air-pollution-form">
+                        監測點 (Monitoring Point): <input type="text" name="air_point"><br>
+                        日期 (Date): <input type="date" name="air_date"><br>
+                        污染物 (Pollutant): <input type="text" name="air_pollutant"><br>
+                        濃度 (Concentration): <input type="number" name="air_concentration"><br>
+                        單位 (Unit): <input type="text" name="air_unit"><br>
+                        <button type="submit">新增空氣監測數據</button>
+                    </form>
+                    <div id="air-pollution-display">
+                        <h4>空氣監測數據列表</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>監測點</th>
+                                    <th>日期</th>
+                                    <th>污染物</th>
+                                    <th>濃度</th>
+                                    <th>單位</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Data will be inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <section id="waste-management">
+                    <h3>廢棄物管理</h3>
+                    <form id="waste-management-form">
+                        廢棄物種類 (Waste Type): <input type="text" name="waste_type"><br>
+                        產生日期 (Generation Date): <input type="date" name="waste_date"><br>
+                        數量 (Quantity): <input type="number" name="waste_quantity"><br>
+                        單位 (Unit): <input type="text" name="waste_unit"><br>
+                        處理方法 (Disposal Method): <input type="text" name="waste_disposal_method"><br>
+                        負責人 (Responsible Person): <input type="text" name="waste_responsible_person"><br>
+                        <button type="submit">新增廢棄物數據</button>
+                    </form>
+                    <div id="waste-management-display">
+                        <h4>廢棄物數據列表</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>種類</th>
+                                    <th>產生日期</th>
+                                    <th>數量</th>
+                                    <th>單位</th>
+                                    <th>處理方法</th>
+                                    <th>負責人</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Data will be inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <section id="chemical-management">
+                    <h3>毒性及關注化學物質管理</h3>
+                    <form id="chemical-management-form">
+                        化學品名稱 (Chemical Name): <input type="text" name="chem_name"><br>
+                        CAS號碼 (CAS Number): <input type="text" name="chem_cas"><br>
+                        存放位置 (Storage Location): <input type="text" name="chem_location"><br>
+                        庫存量 (Quantity): <input type="number" name="chem_quantity"><br>
+                        單位 (Unit): <input type="text" name="chem_unit"><br>
+                        管理負責人 (Responsible Person): <input type="text" name="chem_responsible_person"><br>
+                        <button type="submit">新增化學品數據</button>
+                    </form>
+                    <div id="chemical-management-display">
+                        <h4>化學品數據列表</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>化學品名稱</th>
+                                    <th>CAS號碼</th>
+                                    <th>存放位置</th>
+                                    <th>庫存量</th>
+                                    <th>單位</th>
+                                    <th>管理負責人</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Data will be inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <section id="wastewater-pollution-monitoring">
+                    <h3>廢水汙染監測</h3>
+                    <form id="wastewater-pollution-form">
+                        排放口 (Discharge Point): <input type="text" name="water_point"><br>
+                        日期 (Date): <input type="date" name="water_date"><br>
+                        參數 (Parameter): <input type="text" name="water_parameter"><br>
+                        檢測值 (Value): <input type="number" name="water_value"><br>
+                        單位 (Unit): <input type="text" name="water_unit"><br>
+                        <button type="submit">新增廢水監測數據</button>
+                    </form>
+                    <div id="wastewater-pollution-display">
+                        <h4>廢水監測數據列表</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>排放口</th>
+                                    <th>日期</th>
+                                    <th>參數</th>
+                                    <th>檢測值</th>
+                                    <th>單位</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Data will be inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <section id="iso14001-docs">
+                    <h3>ISO 14001 四階文件範例</h3>
+                    <p>此處將整合ISO 14001相關的四階文件範例，例如程序書、作業指導書、表單等。使用者將能夠在此查閱或下載相關範本。(此功能將在後續階段詳細建置)</p>
+                    <!-- Example placeholder for a document link -->
+                    <!-- <div class="document-link-placeholder">環境管理程序書範本</div> -->
+                </section>
+                <section id="legal-database-link">
+                    <h3>環保法規動態連結</h3>
+                    <p>系統將使用公開API (例如來自 public-apis/public-apis) 自動連結全國法規資料庫，定期掃描與環保相關法規的更新，並透過郵件通知相關人員。最新的法規依據與摘要將會顯示於此處。(此功能將在後續階段詳細建置)</p>
+                    <!-- Example placeholder for displaying legal update -->
+                    <!-- <div class="legal-update-placeholder">最新法規：空氣污染防制法修正案 (YYYY-MM-DD)</div> -->
+                </section>
+            </div>
+            <div id="osh-management-content" class="module-content" style="display: none;">
+                <h2>職業安全衛生管理總覽</h2>
+                <section id="osh-hazard-identification">
+                    <h3>一、工作環境或作業危害之辨識、評估及控制</h3>
+                    <form id="osh-hazard-form">
+                        危害描述 (Hazard Description): <input type="text" name="hazard_desc"><br>
+                        危害地點 (Location): <input type="text" name="hazard_location"><br>
+                        風險等級 (Risk Level): <select name="hazard_risk_level"><option value="high">高</option><option value="medium">中</option><option value="low">低</option></select><br>
+                        控制措施 (Control Measures): <textarea name="hazard_controls"></textarea><br>
+                        負責人 (Responsible Person): <input type="text" name="hazard_responsible"><br>
+                        預計完成日期 (Target Date): <input type="date" name="hazard_target_date"><br>
+                        <button type="submit">新增危害登錄</button>
+                    </form>
+                    <div id="osh-hazard-display">
+                        <h4>危害登錄列表</h4>
+                        <table>
+                            <thead><tr><th>危害描述</th><th>地點</th><th>風險等級</th><th>控制措施</th><th>負責人</th><th>預計完成日期</th></tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+                <section id="osh-machinery-management">
+                    <h3>二、機械、設備或器具之管理</h3>
+                    <form id="osh-machinery-form">
+                        機械/設備名稱 (Name): <input type="text" name="machine_name"><br>
+                        資產編號 (Asset ID): <input type="text" name="machine_asset_id"><br>
+                        檢查項目 (Inspection Item): <input type="text" name="machine_inspection_item"><br>
+                        檢查日期 (Inspection Date): <input type="date" name="machine_inspection_date"><br>
+                        檢查結果 (Status): <input type="text" name="machine_status"><br>
+                        改善措施 (Corrective Action): <textarea name="machine_corrective_action"></textarea><br>
+                        <button type="submit">新增機械設備檢查紀錄</button>
+                    </form>
+                    <div id="osh-machinery-display">
+                        <h4>機械設備檢查紀錄列表</h4>
+                        <table>
+                            <thead><tr><th>機械/設備名稱</th><th>資產編號</th><th>檢查項目</th><th>檢查日期</th><th>檢查結果</th><th>改善措施</th></tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+                <section id="osh-chemical-management">
+                    <h3>三、危害性化學品之分類、標示、通識及管理</h3>
+                    <form id="osh-chemical-form">
+                        化學品名稱 (Chemical Name): <input type="text" name="osh_chem_name"><br>
+                        CAS號碼 (CAS Number): <input type="text" name="osh_chem_cas"><br>
+                        GHS圖示 (GHS Pictograms): <input type="text" name="osh_chem_ghs"> (User can list them, e.g., "Flame, Skull")<br>
+                        SDS文件連結 (SDS Link): <input type="url" name="osh_chem_sds_link"><br>
+                        儲存位置 (Storage Location): <input type="text" name="osh_chem_location"><br>
+                        最大儲存量 (Max Quantity): <input type="number" name="osh_chem_max_qty"><br>
+                        單位 (Unit): <input type="text" name="osh_chem_unit"><br>
+                        <button type="submit">新增危害化學品紀錄</button>
+                    </form>
+                    <div id="osh-chemical-display">
+                        <h4>危害化學品列表</h4>
+                        <table>
+                            <thead><tr><th>化學品名稱</th><th>CAS號碼</th><th>GHS圖示</th><th>SDS文件連結</th><th>儲存位置</th><th>最大儲存量</th><th>單位</th></tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+                <section id="osh-monitoring-planning">
+                    <h3>四、有害作業環境之採樣策略規劃及監測</h3>
+                    <form id="osh-monitoring-form">
+                        作業環境/區域 (Work Environment/Area): <input type="text" name="monitoring_area"><br>
+                        監測項目 (Monitoring Item): <input type="text" name="monitoring_item"><br>
+                        採樣策略 (Sampling Strategy): <textarea name="monitoring_strategy"></textarea><br>
+                        監測日期 (Monitoring Date): <input type="date" name="monitoring_date"><br>
+                        監測結果 (Result): <input type="text" name="monitoring_result"><br>
+                        負責單位 (Responsible Unit): <input type="text" name="monitoring_unit_responsible"><br>
+                        <button type="submit">新增監測計畫</button>
+                    </form>
+                    <div id="osh-monitoring-display">
+                        <h4>監測計畫與結果列表</h4>
+                        <table>
+                            <thead><tr><th>作業環境/區域</th><th>監測項目</th><th>採樣策略</th><th>監測日期</th><th>監測結果</th><th>負責單位</th></tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+                <section id="osh-dangerous-workplace-assessment">
+                    <h3>五、危險性工作場所之製程或施工安全評估</h3>
+                    <form id="osh-assessment-form">
+                        工作場所/製程 (Workplace/Process): <input type="text" name="assessment_location"><br>
+                        評估類型 (Assessment Type): <input type="text" name="assessment_type"> (e.g., HAZOP, JSA)<br>
+                        評估日期 (Assessment Date): <input type="date" name="assessment_date"><br>
+                        主要發現 (Key Findings): <textarea name="assessment_findings"></textarea><br>
+                        建議措施 (Recommendations): <textarea name="assessment_recommendations"></textarea><br>
+                        負責人 (Lead Assessor): <input type="text" name="assessment_assessor"><br>
+                        <button type="submit">新增安全評估紀錄</button>
+                    </form>
+                    <div id="osh-assessment-display">
+                        <h4>安全評估紀錄列表</h4>
+                        <table>
+                            <thead><tr><th>工作場所/製程</th><th>評估類型</th><th>評估日期</th><th>主要發現</th><th>建議措施</th><th>負責人</th></tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+                <section id="osh-procurement-contractor-change-management">
+                    <h3>六、採購管理、承攬管理及變更管理</h3>
+                    <form id="osh-pcm-form">
+                        管理類型 (Management Type): <select name="pcm_type"><option value="procurement">採購</option><option value="contractor">承攬</option><option value="change">變更</option></select><br>
+                        項目/活動名稱 (Item/Activity Name): <input type="text" name="pcm_item_name"><br>
+                        日期 (Date): <input type="date" name="pcm_date"><br>
+                        安全審核要點 (Safety Review Points): <textarea name="pcm_safety_review"></textarea><br>
+                        審核結果 (Review Result): <input type="text" name="pcm_review_result"><br>
+                        負責人 (Responsible Person): <input type="text" name="pcm_responsible_person"><br>
+                        <button type="submit">新增管理紀錄</button>
+                    </form>
+                    <div id="osh-pcm-display">
+                        <h4>採購、承攬、變更管理紀錄列表</h4>
+                        <table>
+                            <thead><tr><th>管理類型</th><th>項目/活動名稱</th><th>日期</th><th>安全審核要點</th><th>審核結果</th><th>負責人</th></tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+                <section id="osh-safety-standards">
+                    <h3>七、安全衛生作業標準</h3>
+                    <form id="osh-standards-form">
+                        標準名稱 (Standard Name): <input type="text" name="standard_name"><br>
+                        標準編號 (Standard ID): <input type="text" name="standard_id"><br>
+                        適用範圍 (Scope): <input type="text" name="standard_scope"><br>
+                        發布日期 (Issue Date): <input type="date" name="standard_issue_date"><br>
+                        文件連結 (Document Link): <input type="url" name="standard_doc_link"><br>
+                        <button type="submit">新增作業標準</button>
+                    </form>
+                    <div id="osh-standards-display">
+                        <h4>安全衛生作業標準列表</h4>
+                        <table>
+                            <thead><tr><th>標準名稱</th><th>標準編號</th><th>適用範圍</th><th>發布日期</th><th>文件連結</th></tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+                <section id="osh-inspections">
+                    <h3>八、定期檢查、重點檢查、作業檢點及現場巡視</h3>
+                    <form id="osh-inspections-form">
+                        檢查類型 (Inspection Type): <select name="inspection_type"><option value="periodic">定期檢查</option><option value="key_point">重點檢查</option><option value="operational_check">作業檢點</option><option value="site_inspection">現場巡視</option></select><br>
+                        檢查區域/項目 (Area/Item Inspected): <input type="text" name="inspection_area_item"><br>
+                        檢查日期 (Inspection Date): <input type="date" name="inspection_date"><br>
+                        檢查發現 (Findings): <textarea name="inspection_findings"></textarea><br>
+                        改善建議 (Recommendations): <textarea name="inspection_recommendations"></textarea><br>
+                        負責人 (Inspector): <input type="text" name="inspection_inspector"><br>
+                        <button type="submit">新增檢查紀錄</button>
+                    </form>
+                    <div id="osh-inspections-display">
+                        <h4>檢查紀錄列表</h4>
+                        <table>
+                            <thead><tr><th>檢查類型</th><th>檢查區域/項目</th><th>檢查日期</th><th>檢查發現</th><th>改善建議</th><th>負責人</th></tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+                <section id="osh-training">
+                    <h3>九、安全衛生教育訓練</h3>
+                    <form id="osh-training-form">
+                        課程名稱 (Course Name): <input type="text" name="training_course_name"><br>
+                        訓練日期 (Training Date): <input type="date" name="training_date"><br>
+                        訓練講師 (Trainer): <input type="text" name="training_trainer"><br>
+                        參訓人員 (Attendees): <textarea name="training_attendees"></textarea> (Enter names, comma-separated)<br>
+                        訓練時數 (Duration in hours): <input type="number" name="training_duration"><br>
+                        測驗結果 (Assessment Result): <input type="text" name="training_assessment"><br>
+                        <button type="submit">新增訓練紀錄</button>
+                    </form>
+                    <div id="osh-training-display">
+                        <h4>安全衛生教育訓練紀錄列表</h4>
+                        <table>
+                            <thead><tr><th>課程名稱</th><th>訓練日期</th><th>訓練講師</th><th>參訓人員</th><th>訓練時數</th><th>測驗結果</th></tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+                <section id="osh-ppe-management">
+                    <h3>十、個人防護具之管理</h3>
+                    <form id="osh-ppe-form">
+                        PPE類型 (PPE Type): <input type="text" name="ppe_type"><br>
+                        項目名稱 (Item Name): <input type="text" name="ppe_item_name"><br>
+                        領用人 (Recipient): <input type="text" name="ppe_recipient"><br>
+                        領用日期 (Issue Date): <input type="date" name="ppe_issue_date"><br>
+                        檢查/更換日期 (Inspection/Replacement Date): <input type="date" name="ppe_check_date"><br>
+                        數量 (Quantity): <input type="number" name="ppe_quantity"><br>
+                        <button type="submit">新增PPE紀錄</button>
+                    </form>
+                    <div id="osh-ppe-display">
+                        <h4>個人防護具管理紀錄列表</h4>
+                        <table>
+                            <thead><tr><th>PPE類型</th><th>項目名稱</th><th>領用人</th><th>領用日期</th><th>檢查/更換日期</th><th>數量</th></tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+                <section id="osh-health-management">
+                    <h3>十一、健康檢查、管理及促進</h3>
+                    <p>此模組包含：健康諮詢與指導、職業傷病防治、人因性危害防止計畫、異常工作負荷促發疾病預防計畫、母性健康保護預防計畫、執行職務遭受不法侵害預防計畫等。</p>
+                    <form id="osh-health-form">
+                        活動/計畫名稱 (Activity/Program Name): <input type="text" name="health_activity_name"><br>
+                        類型 (Type): <input type="text" name="health_activity_type"> (e.g., 健康檢查, 防治宣導, 人因改善)<br>
+                        執行日期 (Implementation Date): <input type="date" name="health_implementation_date"><br>
+                        參與人員/對象 (Participants/Target Group): <textarea name="health_participants"></textarea><br>
+                        主要內容/結果 (Key Content/Results): <textarea name="health_content_results"></textarea><br>
+                        負責人 (Responsible Person): <input type="text" name="health_responsible_person"><br>
+                        <button type="submit">新增健康管理活動紀錄</button>
+                    </form>
+                    <div id="osh-health-display">
+                        <h4>健康管理活動紀錄列表</h4>
+                        <table>
+                            <thead><tr><th>活動/計畫名稱</th><th>類型</th><th>執行日期</th><th>參與人員/對象</th><th>主要內容/結果</th><th>負責人</th></tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+                <section id="osh-information-management">
+                    <h3>十二、安全衛生資訊之蒐集、分享及運用</h3>
+                    <form id="osh-info-form">
+                        資訊主題 (Information Topic): <input type="text" name="info_topic"><br>
+                        資訊來源 (Source): <input type="text" name="info_source"><br>
+                        蒐集日期 (Collection Date): <input type="date" name="info_collection_date"><br>
+                        分享方式 (Sharing Method): <input type="text" name="info_sharing_method"><br>
+                        應用情況 (Application): <textarea name="info_application"></textarea><br>
+                        <button type="submit">新增資訊紀錄</button>
+                    </form>
+                    <div id="osh-info-display">
+                        <h4>安全衛生資訊紀錄列表</h4>
+                        <table>
+                            <thead><tr><th>資訊主題</th><th>資訊來源</th><th>蒐集日期</th><th>分享方式</th><th>應用情況</th></tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+                <section id="osh-emergency-response">
+                    <h3>十三、緊急應變措施</h3>
+                    <form id="osh-emergency-form">
+                        應變情境 (Scenario): <input type="text" name="emergency_scenario"><br>
+                        應變計畫/程序書 (Plan/Procedure): <input type="text" name="emergency_plan_doc"><br>
+                        演練日期 (Drill Date): <input type="date" name="emergency_drill_date"><br>
+                        演練結果/檢討 (Drill Results/Review): <textarea name="emergency_drill_results"></textarea><br>
+                        負責人 (Responsible Person): <input type="text" name="emergency_responsible"><br>
+                        <button type="submit">新增緊急應變紀錄</button>
+                    </form>
+                    <div id="osh-emergency-display">
+                        <h4>緊急應變紀錄列表</h4>
+                        <table>
+                            <thead><tr><th>應變情境</th><th>應變計畫/程序書</th><th>演練日期</th><th>演練結果/檢討</th><th>負責人</th></tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+                <section id="osh-incident-investigation">
+                    <h3>十四、職業災害、虛驚事故、影響身心健康事件之調查處理及統計分析</h3>
+                    <form id="osh-incident-form">
+                        事件類型 (Incident Type): <select name="incident_type"><option value="accident">職業災害</option><option value="near_miss">虛驚事故</option><option value="health_event">影響身心健康事件</option></select><br>
+                        事件日期 (Incident Date): <input type="date" name="incident_date"><br>
+                        事件描述 (Description): <textarea name="incident_description"></textarea><br>
+                        調查結果 (Investigation Findings): <textarea name="incident_findings"></textarea><br>
+                        改善對策 (Corrective Actions): <textarea name="incident_corrective_actions"></textarea><br>
+                        統計分類 (Statistical Category): <input type="text" name="incident_stats_category"><br>
+                        <button type="submit">新增事件調查紀錄</button>
+                    </form>
+                    <div id="osh-incident-display">
+                        <h4>事件調查紀錄列表</h4>
+                        <table>
+                            <thead><tr><th>事件類型</th><th>事件日期</th><th>事件描述</th><th>調查結果</th><th>改善對策</th><th>統計分類</th></tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+                <section id="osh-records-performance">
+                    <h3>十五、安全衛生管理紀錄及績效評估措施</h3>
+                    <form id="osh-records-form">
+                        紀錄/指標名稱 (Record/Indicator Name): <input type="text" name="record_indicator_name"><br>
+                        評估週期 (Evaluation Period): <input type="text" name="record_eval_period"><br>
+                        評估結果 (Result/Performance): <textarea name="record_performance_result"></textarea><br>
+                        改善建議 (Improvement Suggestions): <textarea name="record_improvement_suggestions"></textarea><br>
+                        負責人 (Responsible Person): <input type="text" name="record_responsible"><br>
+                        <button type="submit">新增紀錄/績效評估</button>
+                    </form>
+                    <div id="osh-records-display">
+                        <h4>管理紀錄與績效評估列表</h4>
+                        <table>
+                            <thead><tr><th>紀錄/指標名稱</th><th>評估週期</th><th>評估結果</th><th>改善建議</th><th>負責人</th></tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+                <section id="osh-other-measures">
+                    <h3>十六、其他安全衛生管理措施</h3>
+                    <form id="osh-other-form">
+                        措施名稱 (Measure Name): <input type="text" name="other_measure_name"><br>
+                        措施說明 (Description): <textarea name="other_measure_description"></textarea><br>
+                        執行日期 (Implementation Date): <input type="date" name="other_measure_date"><br>
+                        成效 (Effectiveness): <input type="text" name="other_measure_effectiveness"><br>
+                        <button type="submit">新增其他措施紀錄</button>
+                    </form>
+                    <div id="osh-other-display">
+                        <h4>其他安全衛生管理措施列表</h4>
+                        <table>
+                            <thead><tr><th>措施名稱</th><th>措施說明</th><th>執行日期</th><th>成效</th></tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+                <section id="osh-iso45001-docs" class="conceptual-placeholder-section">
+                    <h3>ISO 45001 四階文件範例</h3>
+                    <p>此處將整合ISO 45001相關的四階文件範例，例如職安衛手冊、程序書、作業指導書、表單等。使用者將能夠在此查閱或下載相關範本。(此功能將在後續階段詳細建置)</p>
+                    <!-- <div class="document-link-placeholder">職安衛管理程序書範本</div> -->
+                </section>
+                <section id="osh-legal-database-link" class="conceptual-placeholder-section">
+                    <h3>職安衛法規動態連結</h3>
+                    <p>系統將使用公開API (例如來自 public-apis/public-apis) 自動連結全國法規資料庫，定期掃描與職業安全衛生相關法規的更新，並透過郵件通知相關人員。最新的法規依據與摘要將會顯示於此處。此功能亦將整合教育訓練及證照管理需求。(此功能將在後續階段詳細建置)</p>
+                    <!-- <div class="legal-update-placeholder">最新法規：職業安全衛生法修正案 (YYYY-MM-DD)</div> -->
+                </section>
+                <section id="osh-sds-management" class="conceptual-placeholder-section">
+                    <h3>SDS管理與GHS符合性</h3>
+                    <p>系統將支援SDS文件上傳功能。上傳後，能依據SDS內容及台灣相關法規要求，自動分析化學品危害分類、GHS圖示、危害警告訊息、防範措施等，並與現有化學品清單整合。(此功能將在後續階段詳細建置)</p>
+                    <h4>GHS資料翻譯支援</h4>
+                    <p>對於GHS相關資料（如標示、危害訊息），系統將支援翻譯成英文、泰文、印尼文等語言，以符合國際運作需求。(此功能將在後續階段詳細建置)</p>
+                    <!-- <div class="feature-placeholder">SDS上傳介面模擬</div> -->
+                </section>
+            </div>
+            <div id="weather-warnings-area">
+                <div id="weather-info">天氣資訊</div>
+                <div id="high-temp-warning">高溫作業風險警語</div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js" defer></script>
+</body>
+</html>
