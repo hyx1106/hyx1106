@@ -56,27 +56,34 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const ghgDataTableBody = document.getElementById('ghg-data-table').getElementsByTagName('tbody')[0];
-    let ghgData = []; // Array to store GHG data entries
+    // Load data from localStorage or initialize as an empty array
+    let ghgData = JSON.parse(localStorage.getItem('ghgData')) || [];
 
-    function renderGhgTable() {
+    function saveAndRenderGhgTable() {
+        // Save the current data to localStorage
+        localStorage.setItem('ghgData', JSON.stringify(ghgData));
+
+        // Render the table
         ghgDataTableBody.innerHTML = ''; // Clear existing table
         let totalScope1 = 0, totalScope2 = 0, totalScope3 = 0;
 
-        ghgData.forEach((data, index) => {
-            const newRow = ghgDataTableBody.insertRow();
-            newRow.innerHTML = `
-                <td>${data.scope}</td>
-                <td>${data.type}</td>
-                <td>${data.activity}</td>
-                <td>${data.emissions.toFixed(4)}</td>
-                <td><button class="delete-ghg-entry" data-index="${index}">刪除</button></td>
-            `;
+        if (ghgData) {
+            ghgData.forEach((data, index) => {
+                const newRow = ghgDataTableBody.insertRow();
+                newRow.innerHTML = `
+                    <td>${data.scope}</td>
+                    <td>${data.type}</td>
+                    <td>${data.activity}</td>
+                    <td>${data.emissions.toFixed(4)}</td>
+                    <td><button class="delete-ghg-entry" data-index="${index}">刪除</button></td>
+                `;
 
-            // Sum up totals
-            if (data.scope === '範疇一') totalScope1 += data.emissions;
-            if (data.scope === '範疇二') totalScope2 += data.emissions;
-            if (data.scope === '範疇三') totalScope3 += data.emissions;
-        });
+                // Sum up totals
+                if (data.scope === '範疇一') totalScope1 += data.emissions;
+                if (data.scope === '範疇二') totalScope2 += data.emissions;
+                if (data.scope === '範疇三') totalScope3 += data.emissions;
+            });
+        }
 
         // Update summary
         document.getElementById('total-scope1').textContent = totalScope1.toFixed(4);
@@ -99,11 +106,11 @@ document.addEventListener('DOMContentLoaded', () => {
         ghgData.push({
             scope: scope,
             type: type,
-            activity: `${amount} ${unit}`,
+            activity: activity,
             emissions: emissionsInTonnes
         });
 
-        renderGhgTable();
+        saveAndRenderGhgTable();
     }
 
     // Event Listener for adding Scope 1 Stationary source
@@ -146,9 +153,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.target.classList.contains('delete-ghg-entry')) {
             const indexToDelete = parseInt(event.target.dataset.index, 10);
             ghgData.splice(indexToDelete, 1); // Remove the entry from the array
-            renderGhgTable(); // Re-render the table and totals
+            saveAndRenderGhgTable(); // Re-render the table and totals, and save to localStorage
         }
     });
+
+    // Initial render on page load to display any stored data
+    saveAndRenderGhgTable();
 
     // --- Form Data Handling Logic ---
 
