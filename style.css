@@ -1,378 +1,206 @@
 /* Basic body styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', 'Microsoft JhengHei', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f4f7fc;
     color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Header styling */
 header {
-    background-color: #333;
+    background-color: #004a99; /* A professional blue */
     color: #fff;
-    padding: 1rem 0;
-    border-bottom: #0779e4 3px solid;
-    display: flex; /* Use flexbox for alignment */
-    justify-content: space-between; /* Space between h1 and logo */
-    align-items: center; /* Vertically align items */
+    padding: 1rem 2rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 header h1 {
-    margin: 0 0 0 1rem; /* Remove default margin, add left margin */
+    margin: 0;
     font-size: 1.8rem;
-}
-
-#logo-placeholder {
-    background-color: #ccc;
-    color: #333;
-    padding: 0.5rem 1rem;
-    margin-right: 1rem; /* Add right margin */
-    border: 1px solid #aaa;
-    min-width: 100px; /* Placeholder width */
-    text-align: center;
-}
-
-/* Factory Selector styling */
-#factory-selector {
-    padding: 1rem;
-    background-color: #e9ecef;
-    text-align: center; /* Center the content */
-}
-
-#factory-selector label {
-    margin-right: 0.5rem;
-    font-weight: bold;
-}
-
-#factory-selector select {
-    padding: 0.5rem;
-    border-radius: 4px;
-    border: 1px solid #ced4da;
-}
-
-/* Daily Safety Slogan styling */
-#daily-safety-slogan {
-    background-color: #ffc107; /* Noticeable yellow */
-    color: #333;
-    text-align: center;
-    padding: 0.75rem;
-    font-weight: bold;
-    border-bottom: 1px solid #e0a800;
 }
 
 /* Container styling */
 .container {
-    display: flex; /* Use flexbox for two-column layout */
-    margin-top: 1rem;
-}
-
-/* Sidebar styling */
-#sidebar {
-    width: 220px; /* Fixed width */
-    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
     padding: 1rem;
-    border-right: 1px solid #dee2e6;
-    min-height: 400px; /* Example height */
-}
-
-#sidebar h2 {
-    margin-top: 0;
-    color: #007bff;
-    font-size: 1.5rem;
-}
-
-#sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-#sidebar ul li {
-    margin-bottom: 0.5rem;
-}
-
-#sidebar ul li a {
-    text-decoration: none;
-    color: #007bff;
-    display: block; /* Makes the entire area clickable */
-    padding: 0.5rem 0.75rem;
-    border-radius: 4px;
-}
-
-#sidebar ul li a:hover {
-    background-color: #e9ecef;
-    color: #0056b3;
 }
 
 /* Main Content styling */
 #main-content {
-    flex-grow: 1; /* Takes remaining width */
-    padding: 1rem;
+    width: 100%;
+    max-width: 900px; /* Constrain width for better readability */
     background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
 }
-
-#status-area {
-    background-color: #e9f7ef;
-    border: 1px solid #a6d9b8;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    /* min-height: 150px; /* Placeholder height, might be overridden by content */
-}
-
-#dashboard-title {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    font-size: 1.6rem;
-    color: #333;
-}
-
-.dashboard-widget {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 1rem;
-    margin-bottom: 1rem; /* Space between widgets */
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.dashboard-widget h3 {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
-    color: #007bff; /* Bootstrap primary blue for consistency */
-}
-
-.dashboard-widget p {
-    font-size: 0.9rem;
-    color: #555;
-}
-
-/* Optional: Add a container for widgets if flex layout is desired later */
-/* For now, they will stack vertically which is fine. */
 
 /* Module Content styling */
-.module-content {
-    padding: 1.5rem;
-    border: 1px solid #dee2e6;
-    background-color: #fff;
-    margin-top: 1rem; /* Space from dashboard or other modules */
-}
-
-.module-content h2 { /* e.g., 環境管理總覽 */
-    font-size: 1.8rem;
-    color: #343a40;
-    margin-bottom: 1.5rem;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 0.5rem;
-}
-
 .module-content section {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid #eef2f7;
+    padding-bottom: 1.5rem;
+}
+.module-content section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
 }
 
-.module-content section h3 { /* e.g., 空氣污染監測 */
-    font-size: 1.4rem;
-    color: #495057;
+.module-content h3 {
+    font-size: 1.6rem;
+    color: #004a99;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #0056b3;
+}
+
+.module-content h4 {
+    font-size: 1.3rem;
+    color: #343a40;
+    margin-top: 1.5rem;
     margin-bottom: 1rem;
-}
-
-.module-content section h4 { /* e.g., 固定燃燒源 */
-    font-size: 1.2rem;
-    color: #6c757d;
-    margin-top: 1.5rem; /* Add space above h4 */
-    margin-bottom: 0.75rem;
-    border-bottom: 1px solid #e9ecef;
-    padding-bottom: 0.25rem;
 }
 
 /* Form styling */
-.module-content form {
+form {
     background-color: #f8f9fa;
-    padding: 1rem;
-    border-radius: 4px;
-    border: 1px solid #e9ecef;
-    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+    margin-bottom: 1rem;
 }
 
-.module-content form label {
-    font-weight: bold;
-    margin-bottom: 0.25rem; /* Space between label and input */
-    display: block; /* Ensure it takes its own line */
-}
-
-.module-content form input[type="text"],
-.module-content form input[type="date"],
-.module-content form input[type="number"],
-.module-content form select,
-.module-content form textarea,
-.module-content form button {
+form label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
     display: block;
-    width: calc(100% - 1.2rem); /* Full width minus padding */
-    margin-bottom: 0.75rem;
-    padding: 0.6rem;
+}
+
+form input[type="text"],
+form input[type="number"],
+form select {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
     border-radius: 4px;
     border: 1px solid #ced4da;
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-}
-
-/* Adjust for inline text before input */
-.module-content form br {
-    display: none; /* Hide <br> tags as we use block display for inputs */
-}
-
-.module-content form input[type="text"],
-.module-content form input[type="date"],
-.module-content form input[type="number"],
-.module-content form select,
-.module-content form textarea {
-     /* The label text is outside the input, so apply margin to the input for spacing */
-    margin-top: 0.25rem;
-}
-
-.module-content form textarea {
-    height: 80px; /* Default height for textareas */
-    line-height: 1.5; /* Improved readability */
-    resize: vertical; /* Allow vertical resize */
-}
-
-.module-content form button {
-    background-color: #28a745; /* Green for submit */
-    color: white;
-    border: none;
-    cursor: pointer;
+    box-sizing: border-box;
     font-size: 1rem;
 }
+form input::placeholder {
+    color: #aaa;
+}
 
-.module-content form button:hover {
+form button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+form button:hover {
     background-color: #218838;
 }
 
-/* Style for the delete button in GHG table */
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+}
+
+th, td {
+    border: 1px solid #dee2e6;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    vertical-align: middle;
+}
+
+thead {
+    background-color: #e9ecef;
+}
+
+thead th {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #495057;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f8f9fa;
+}
+tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Summary and Results Display */
+#ghg-summary-display {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #e9f7ef;
+    border: 1px solid #a6d9b8;
+    border-radius: 6px;
+}
+
+#ghg-summary-display h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #155724;
+}
+
+#ghg-summary-display p {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+#ghg-summary-display hr {
+    border: 0;
+    border-top: 1px solid #a6d9b8;
+    margin: 1rem 0;
+}
+
+#ghg-summary-display span {
+    font-weight: bold;
+    color: #0056b3;
+}
+
+/* Delete button styling */
 .delete-ghg-entry {
-    background-color: #dc3545; /* Red for delete/danger */
+    background-color: #dc3545;
     color: white;
     border: none;
-    padding: 0.3rem 0.6rem;
-    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.2s;
 }
 
 .delete-ghg-entry:hover {
     background-color: #c82333;
 }
 
-/* Table styling */
-.module-content table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-}
-
-.module-content th,
-.module-content td {
-    border: 1px solid #dee2e6;
-    padding: 0.75rem;
-    text-align: left;
-    font-size: 0.9rem;
-}
-
-.module-content thead {
-    background-color: #e9ecef;
-}
-
-.module-content thead th {
-    color: #495057;
-    font-weight: bold;
-}
-
-.module-content tbody tr:nth-child(odd) {
-    background-color: #f8f9fa; /* Zebra striping for readability */
-}
-
-.module-content tbody tr:hover {
-    background-color: #e2e6ea;
-}
-
-/* Styling for ISO 14001 and Legal Database sections */
-#iso14001-docs,
-#legal-database-link {
-    background-color: #f0f8ff; /* AliceBlue, a light, distinct background */
-    border-left: 4px solid #007bff; /* Blue left border for emphasis */
-    padding: 1rem 1.5rem; /* More padding for these sections */
-    margin-top: 1.5rem; /* Ensure some space from previous section */
-}
-
-#iso14001-docs p,
-#legal-database-link p {
-    font-size: 0.95rem; /* Slightly larger font for readability */
-    color: #555;
-}
-
-/* Styling for placeholder divs (if they were to be uncommented) */
-.document-link-placeholder,
-.legal-update-placeholder {
-    background-color: #e9ecef;
-    border: 1px dashed #ced4da;
-    padding: 0.75rem;
-    margin-top: 0.5rem;
-    font-style: italic;
-    color: #6c757d;
-}
-
-/* Styling for conceptual placeholder sections in OSH module */
-.conceptual-placeholder-section {
-    background-color: #f0f8ff; /* AliceBlue, consistent with Env module placeholders */
-    border-left: 4px solid #007bff; /* Blue left border */
-    padding: 1rem 1.5rem;
-    margin-top: 1.5rem;
-    margin-bottom: 1rem; /* Added for spacing between these sections */
-}
-
-.conceptual-placeholder-section h3 {
-    /* Existing h3 styling from .module-content section h3 should apply */
-    /* If specific override is needed, it can be added here */
-    /* color: #0056b3; */ /* Example: Darker blue for these specific h3 */
-}
-
-.conceptual-placeholder-section h4 {
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem; /* Slightly smaller than h3 */
-    color: #0056b3; /* Darker blue for h4 */
-}
-
-.conceptual-placeholder-section p {
-    /* Existing p styling from #iso14001-docs p and #legal-database-link p should be similar */
-    /* font-size: 0.95rem; */
-    /* color: #555; */
-    /* If specific override is needed, it can be added here */
-}
-
-
-/* Weather/Warnings Area styling */
-#weather-warnings-area {
-    background-color: #fdfdfe;
-    border: 1px solid #c8ced3;
+/* Footer styling */
+footer {
+    text-align: center;
     padding: 1rem;
-    /* Using flex to position items inside, if needed later */
-    display: flex;
-    flex-direction: column; /* Stack children vertically */
-    gap: 0.5rem; /* Space between child elements */
+    margin-top: 2rem;
+    background-color: #343a40;
+    color: #f8f9fa;
 }
 
-#weather-info {
-    background-color: #e7f3fe;
-    border: 1px solid #b3d7f7;
-    padding: 0.75rem;
+footer p {
+    margin: 0;
 }
-
-#high-temp-warning {
-    background-color: #fff3cd;
-    border: 1px solid #ffeeba;
-    color: #856404;
-    padding: 0.75rem;
-}
-
-/* Basic visual distinction for other placeholders if any were missed */
-/* (Covered by specific styling above) */
