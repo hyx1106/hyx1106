@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>溫室氣體 (GHG) 與 CBAM 排放計算工具</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 </head>
 <body>
     <header>
@@ -55,6 +56,19 @@
                         <input type="number" id="s1-mobile-fuel-amount" name="s1-mobile-fuel-amount" placeholder="請輸入公升數">
                         <button type="button" id="add-s1-mobile">新增移動源</button>
                     </form>
+                    <form id="ghg-scope1-fugitive-form">
+                        <h4>逸散排放 (Fugitive Emissions)</h4>
+                        <label for="s1-refrigerant-type">冷媒種類:</label>
+                        <select id="s1-refrigerant-type" name="s1-refrigerant-type">
+                            <option value="hfc-134a">HFC-134a</option>
+                            <option value="r-410a">R-410A</option>
+                            <option value="r-404a">R-404A</option>
+                            <option value="r-32">R-32</option>
+                        </select>
+                        <label for="s1-refrigerant-amount">填充/洩漏量 (公斤):</label>
+                        <input type="number" id="s1-refrigerant-amount" name="s1-refrigerant-amount" placeholder="請輸入公斤數">
+                        <button type="button" id="add-s1-fugitive">新增逸散源</button>
+                    </form>
                 </section>
 
                 <!-- 範疇二：間接排放 -->
@@ -81,11 +95,52 @@
                         <input type="number" id="s3-waste-amount" name="s3-waste-amount" placeholder="請輸入公噸數">
                         <button type="button" id="add-s3-waste">新增廢棄物</button>
                     </form>
+                    <form id="ghg-scope3-travel-form">
+                        <h4>商務差旅 (Business Travel)</h4>
+                        <label for="s3-travel-type">交通方式:</label>
+                        <select id="s3-travel-type" name="s3-travel-type">
+                            <option value="flight-short">短程航班 (國內)</option>
+                            <option value="flight-long">長程航班 (國際)</option>
+                            <option value="train">火車</option>
+                        </select>
+                        <label for="s3-travel-distance">總里程 (公里):</label>
+                        <input type="number" id="s3-travel-distance" name="s3-travel-distance" placeholder="請輸入總公里數">
+                        <button type="button" id="add-s3-travel">新增差旅紀錄</button>
+                    </form>
+                    <form id="ghg-scope3-commute-form">
+                        <h4>員工通勤 (Employee Commute)</h4>
+                        <label for="s3-commute-type">交通方式:</label>
+                        <select id="s3-commute-type" name="s3-commute-type">
+                            <option value="car-gasoline">員工自駕 (汽油車)</option>
+                            <option value="motorcycle">員工騎乘 (機車)</option>
+                            <option value="public-transport">大眾運輸</option>
+                        </select>
+                        <label for="s3-commute-distance">總人公里數 (人*公里):</label>
+                        <input type="number" id="s3-commute-distance" name="s3-commute-distance" placeholder="總員工通勤公里數">
+                        <button type="button" id="add-s3-commute">新增通勤紀錄</button>
+                    </form>
+                    <form id="ghg-scope3-transport-form">
+                        <h4>上游運輸 (Upstream Transportation)</h4>
+                        <label for="s3-transport-mode">貨運方式:</label>
+                        <select id="s3-transport-mode" name="s3-transport-mode">
+                            <option value="truck">卡車</option>
+                            <option value="ship">遠洋貨輪</option>
+                        </select>
+                        <label for="s3-transport-distance">總延噸公里 (噸*公里):</label>
+                        <input type="number" id="s3-transport-distance" name="s3-transport-distance" placeholder="總重量乘以總距離">
+                        <button type="button" id="add-s3-transport">新增運輸紀錄</button>
+                    </form>
                 </section>
 
                 <!-- 盤查結果 -->
                 <section id="ghg-results">
                     <h3>盤查與計算結果</h3>
+                    <div class="report-actions">
+                        <input type="file" id="csv-import-input" accept=".csv" style="display: none;">
+                        <button id="import-csv">從 CSV 匯入</button>
+                        <button id="export-csv">匯出為 CSV</button>
+                        <button id="generate-report">產生盤查報告書</button>
+                    </div>
                     <div id="ghg-results-display">
                         <h4>排放源數據列表</h4>
                         <table id="ghg-data-table">

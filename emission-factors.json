@@ -1,0 +1,19 @@
+{
+    "natural-gas": { "name": "天然氣", "factor": 2.02, "unit": "m³" },
+    "diesel": { "name": "柴油", "factor": 2.66, "unit": "L" },
+    "gasoline": { "name": "汽油", "factor": 2.28, "unit": "L" },
+    "electricity": { "name": "外購電力", "factor": 0.502, "unit": "kWh" },
+    "mixed-waste": { "name": "混合事業廢棄物", "factor": 531, "unit": "tonne" },
+    "hfc-134a": { "name": "HFC-134a", "factor": 1430, "unit": "kg" },
+    "r-410a": { "name": "R-410A", "factor": 2088, "unit": "kg" },
+    "r-404a": { "name": "R-404A", "factor": 3922, "unit": "kg" },
+    "r-32": { "name": "R-32", "factor": 675, "unit": "kg" },
+    "flight-short": { "name": "短程航班 (國內)", "factor": 0.25, "unit": "km" },
+    "flight-long": { "name": "長程航班 (國際)", "factor": 0.15, "unit": "km" },
+    "train": { "name": "火車", "factor": 0.04, "unit": "km" },
+    "car-gasoline": { "name": "員工自駕 (汽油車)", "factor": 0.17, "unit": "pkm" },
+    "motorcycle": { "name": "員工騎乘 (機車)", "factor": 0.07, "unit": "pkm" },
+    "public-transport": { "name": "大眾運輸", "factor": 0.05, "unit": "pkm" },
+    "truck": { "name": "卡車", "factor": 0.13, "unit": "tkm" },
+    "ship": { "name": "遠洋貨輪", "factor": 0.02, "unit": "tkm" }
+}

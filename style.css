@@ -115,6 +115,29 @@ form button:hover {
     background-color: #218838;
 }
 
+/* Report Actions Buttons */
+.report-actions {
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.report-actions button {
+    background-color: #007bff; /* A different blue for actions */
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+.report-actions button:hover {
+    background-color: #0056b3;
+}
+
 /* Table styling */
 table {
     width: 100%;
