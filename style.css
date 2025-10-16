@@ -176,6 +176,15 @@ header h1 {
     margin-bottom: 1rem;
 }
 
+.module-content section h4 { /* e.g., 固定燃燒源 */
+    font-size: 1.2rem;
+    color: #6c757d;
+    margin-top: 1.5rem; /* Add space above h4 */
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 0.25rem;
+}
+
 /* Form styling */
 .module-content form {
     background-color: #f8f9fa;
@@ -185,7 +194,12 @@ header h1 {
     margin-bottom: 1.5rem;
 }
 
-.module-content form label, /* Though not explicitly used in HTML, good for future */
+.module-content form label {
+    font-weight: bold;
+    margin-bottom: 0.25rem; /* Space between label and input */
+    display: block; /* Ensure it takes its own line */
+}
+
 .module-content form input[type="text"],
 .module-content form input[type="date"],
 .module-content form input[type="number"],
@@ -231,6 +245,21 @@ header h1 {
 
 .module-content form button:hover {
     background-color: #218838;
+}
+
+/* Style for the delete button in GHG table */
+.delete-ghg-entry {
+    background-color: #dc3545; /* Red for delete/danger */
+    color: white;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-ghg-entry:hover {
+    background-color: #c82333;
 }
 
 /* Table styling */

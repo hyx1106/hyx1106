@@ -30,6 +30,7 @@
             <ul>
                 <li><a href="#" data-module="dashboard">儀表板</a></li>
                 <li><a href="#" data-module="env-management">環境管理</a></li>
+                <li><a href="#" data-module="ghg-inventory">溫室氣體盤查</a></li>
                 <li><a href="#" data-module="osh-management">職業安全衛生管理</a></li>
             </ul>
         </aside>
@@ -174,6 +175,103 @@
                     <!-- <div class="legal-update-placeholder">最新法規：空氣污染防制法修正案 (YYYY-MM-DD)</div> -->
                 </section>
             </div>
+            <div id="ghg-inventory-content" class="module-content" style="display: none;">
+                <h2>溫室氣體(GHG)盤查與計算</h2>
+
+                <!-- 範疇一：直接排放 -->
+                <section id="ghg-scope1">
+                    <h3>範疇一：直接排放 (Scope 1)</h3>
+
+                    <!-- 固定燃燒源 -->
+                    <form id="ghg-scope1-stationary-form">
+                        <h4>固定燃燒源 (Stationary Combustion)</h4>
+                        <label for="s1-fuel-type">燃料種類:</label>
+                        <select id="s1-fuel-type" name="s1-fuel-type">
+                            <option value="natural-gas">天然氣</option>
+                            <option value="diesel">柴油</option>
+                            <option value="gasoline">汽油</option>
+                        </select>
+                        <label for="s1-fuel-amount">使用量:</label>
+                        <input type="number" id="s1-fuel-amount" name="s1-fuel-amount" placeholder="請輸入數值">
+                        <label for="s1-fuel-unit">單位:</label>
+                        <select id="s1-fuel-unit" name="s1-fuel-unit">
+                            <option value="m3">立方公尺 (m³)</option>
+                            <option value="l">公升 (L)</option>
+                        </select>
+                        <button type="button" id="add-s1-stationary">新增固定源</button>
+                    </form>
+
+                    <!-- 移動燃燒源 -->
+                    <form id="ghg-scope1-mobile-form">
+                        <h4>移動燃燒源 (Mobile Combustion)</h4>
+                        <label for="s1-mobile-fuel-type">燃料種類:</label>
+                        <select id="s1-mobile-fuel-type" name="s1-mobile-fuel-type">
+                            <option value="diesel">柴油</option>
+                            <option value="gasoline">汽油</option>
+                        </select>
+                        <label for="s1-mobile-fuel-amount">使用量 (公升):</label>
+                        <input type="number" id="s1-mobile-fuel-amount" name="s1-mobile-fuel-amount" placeholder="請輸入公升數">
+                        <button type="button" id="add-s1-mobile">新增移動源</button>
+                    </form>
+                </section>
+
+                <!-- 範疇二：間接排放 -->
+                <section id="ghg-scope2">
+                    <h3>範疇二：能源間接排放 (Scope 2)</h3>
+                    <form id="ghg-scope2-form">
+                        <h4>外購電力 (Purchased Electricity)</h4>
+                        <label for="s2-electricity-amount">使用量 (度 / kWh):</label>
+                        <input type="number" id="s2-electricity-amount" name="s2-electricity-amount" placeholder="請輸入千瓦時(度)">
+                        <button type="button" id="add-s2-electricity">新增電力使用</button>
+                    </form>
+                </section>
+
+                <!-- 範疇三：其他間接排放 (此為簡化範例) -->
+                <section id="ghg-scope3">
+                    <h3>範疇三：其他間接排放 (Scope 3) - 簡化範例</h3>
+                    <form id="ghg-scope3-waste-form">
+                        <h4>委外處理廢棄物 (Waste Disposal)</h4>
+                        <label for="s3-waste-type">廢棄物類型:</label>
+                        <select id="s3-waste-type" name="s3-waste-type">
+                            <option value="mixed-waste">混合事業廢棄物</option>
+                        </select>
+                        <label for="s3-waste-amount">處理量 (公噸):</label>
+                        <input type="number" id="s3-waste-amount" name="s3-waste-amount" placeholder="請輸入公噸數">
+                        <button type="button" id="add-s3-waste">新增廢棄物</button>
+                    </form>
+                </section>
+
+                <!-- 盤查結果 -->
+                <section id="ghg-results">
+                    <h3>盤查結果</h3>
+                    <div id="ghg-results-display">
+                        <h4>排放源數據列表</h4>
+                        <table id="ghg-data-table">
+                            <thead>
+                                <tr>
+                                    <th>範疇</th>
+                                    <th>排放源類型</th>
+                                    <th>活動數據</th>
+                                    <th>排放量 (tCO2e)</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- GHG data will be inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="ghg-summary-display" style="margin-top: 20px;">
+                        <h4>排放總結</h4>
+                        <p><strong>範疇一總排放量:</strong> <span id="total-scope1">0.00</span> tCO2e</p>
+                        <p><strong>範疇二總排放量:</strong> <span id="total-scope2">0.00</span> tCO2e</p>
+                        <p><strong>範疇三總排放量:</strong> <span id="total-scope3">0.00</span> tCO2e</p>
+                        <hr>
+                        <p><strong>總排放量:</strong> <span id="total-ghg">0.00</span> tCO2e</p>
+                    </div>
+                </section>
+            </div>
+
             <div id="osh-management-content" class="module-content" style="display: none;">
                 <h2>職業安全衛生管理總覽</h2>
                 <section id="osh-hazard-identification">
